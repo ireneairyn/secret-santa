@@ -44,7 +44,7 @@ export default function Home() {
         <div className={styles.what}>
           <h2>What is Secret Santa?</h2>
           <p>
-            In four words: <strong>Anonymous gift exchange tradition</strong>.
+            In four words:<strong> Anonymous gift exchange tradition</strong>.
           </p>
           <div className={styles.displayButton}>
             <button onClick={handleButtonClick}>{showExtendedText ? "I need less" : "I need more"}</button>
@@ -79,7 +79,7 @@ export default function Home() {
           <h2>How to play</h2>
           <p>
             In six words:
-            <strong>name | email | exceptions | budget | date | time</strong>
+            <strong> name | email | exceptions | budget | date | time</strong>
           </p>
           <div className={styles.displayButton}>
             <button>I need more</button>
