@@ -1,11 +1,19 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+import Head from "next/head";
+import Image from "next/image";
+import { Inter } from "next/font/google";
+import styles from "@/styles/Home.module.css";
+import React, { useState } from "react";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const [showExtendedText, setShowExtendedText] = useState(false);
+
+  function handleButtonClick() {
+    setShowExtendedText(!showExtendedText);
+
+  }
+
   return (
     <>
       <Head>
@@ -14,101 +22,89 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        <div className={styles.description}>
+      <header>
+        <img className={styles.title} src="/title.png" />
+      </header>
+      <a
+        href="https://www.amazon.co.uk"
+        className={styles.emojiLink}
+        target="_blank"
+      >
+        🎁
+      </a>
+      <a
+        href="https://github.com/ireneairyn/secret-santa"
+        className={styles.logoLink}
+        target="_blank"
+      >
+        <img src="/github-mark-white.png" alt="github" />
+      </a>
+
+      <div className={styles.content}>
+        <div className={styles.what}>
+          <h2>What is Secret Santa?</h2>
           <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>pages/index.js</code>
+            In four words: <strong>Anonymous gift exchange tradition</strong>.
           </p>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{' '}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              />
-            </a>
+          <div className={styles.displayButton}>
+            <button onClick={handleButtonClick}>{showExtendedText ? "I need less" : "I need more"}</button>
+          </div>
+          {showExtendedText && (
+            <div className={styles.whatExtended}>
+              <p>
+                Secret Santa, known as
+                <em> amigo invisible (invisible friend)</em> in Spanish, is a
+                gift-giving tradition where members of a group are randomly
+                assigned to give a gift to one person without revealing their
+                identity until the gift is opened.
+              </p>
+              <p>
+                Ok, now that you know what it is, you are ready to play. What do
+                you need?
+              </p>
+              <p>
+                Generous people that want to spend money on someone they might
+                not know very well in exchange for a present they probably don't
+                like.
+              </p>
+              <p>
+                I know, I'm not selling it very well so far, BUT that's not
+                going to happen this time!
+              </p>
+              <p>Here's what you have to do:</p>
+            </div>
+          )}
+        </div>
+        <div className={styles.how}>
+          <h2>How to play</h2>
+          <p>
+            In six words:
+            <strong>name | email | exceptions | budget | date | time</strong>
+          </p>
+          <div className={styles.displayButton}>
+            <button>I need more</button>
+          </div>
+          <div className={styles.howExtended}>
+            <p>
+              Write the name and email of the participants, including yours as
+              the organiser. Next to each participant choose the name or names
+              of those they shouldn't give a gift to.
+            </p>
+            <p>
+              For example: Sara, Sam, Elena, Daniel, Alex and Nico are playing,
+              but Sam and Nico are a couple so they don't want to give a present
+              to each other as part of this game, You would add the exception
+              next to one of their names and will guarantee they'll give and get
+              a present from other people.
+            </p>
+            <p>Once that's sorted, choose a budget for the presents.</p>
+            <p>Finally, add a date and place for the event!</p>
           </div>
         </div>
-
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-        </div>
-
-        <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
+      </div>
+      <footer>
+        <img className={styles.present} src="/present.png" />
+      </footer>
     </>
-  )
+  );
 }

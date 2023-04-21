@@ -1,3 +1,19 @@
+# 🎁 Secret Santa 🎄
+
+Organise a Secret Santa game with your friends! 
+
+## How it works 📖
+1. Get a group of friends/family members who want to participate in the Secret Santa gift exchange.
+2. Write the name and email of each participant and specify any exceptions (such as not giving a present to your partner).
+3. Set a budget for the gifts.
+4. Pick a date and place for the gift exchange.
+5. Click send!
+
+Participants will receive an email with the name of the person they must give a present to. They will also be able to add a wishlist to help their Secret Santa find the best present for them!
+On the day of the gift exchange, everyone will reveal who they got gifts for and open their presents.
+
+## Development 
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
