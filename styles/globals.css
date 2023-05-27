@@ -19,18 +19,18 @@ button {
   font-size: 18px;
   font-weight: bold;
   background-color: white;
-  border: #b20050 solid 2px;
+  border: #01a8c2 solid 2px;
   border-radius: 30px;
-  color: #b20050;
+  color: #01a8c2;
   cursor: pointer;
   padding: 6px;
-  outline: 2px solid #b20050;
+  outline: 2px solid #01a8c2;
   outline-offset: 0px;
   margin-bottom: 10px;
 }
 
 h2 {
-  color: #b20050;
+  color: #01a8c2;
 }
 
 footer {
@@ -41,9 +41,9 @@ footer {
 /* Desktop stuff */
 @media (min-width: 768px) {
   button:hover {
-    background-color: #35b2ae;
+    background-color: #b20050;
     border: white solid 2px;
-    outline: 2px solid #35b2ae;
+    outline: 2px solid #b20050;
     color: white;
   }
 }
