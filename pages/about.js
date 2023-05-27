@@ -33,7 +33,7 @@ export default function About() {
           <div className={styles.whatExtended}>
             <p>
               Secret Santa, known as
-              <em> amigo invisible (invisible friend)</em> in Spanish, is a
+              <em> amigo invisible (invisible friend)</em> in Spanish or <em> Kris Kindle</em> in Ireland, is a
               gift-giving tradition where members of a group are randomly
               assigned to give a gift to one person without revealing their
               identity until the gift is opened.

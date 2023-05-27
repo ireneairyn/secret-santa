@@ -10,6 +10,20 @@ body {
   font-size: 20px;
 }
 
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background-image: url("/backgroundPhone.png");
+  background-size: cover;
+  background-repeat: no-repeat; 
+  background-position: center;
+  background-position-y: bottom;
+}
+
 header {
   display: flex;
   justify-content: center;
@@ -29,6 +43,17 @@ button {
   margin-bottom: 10px;
 }
 
+.starterContent {
+display: flex;
+justify-content: center;
+}
+
+.starterButton {
+  margin: 20px;
+  padding: 20px;
+  font-size: 24px;
+}
+
 h2 {
   color: #01a8c2;
 }
@@ -36,6 +61,19 @@ h2 {
 footer {
   display: flex;
   justify-content: center;
+}
+
+.topLinks {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.emoji-link,
+.logo-link {
+  font-size: 40px;
+  text-decoration: none;
+  margin: 10px 10px 0 10px;
 }
 
 /* Desktop stuff */
@@ -46,4 +84,24 @@ footer {
     outline: 2px solid #b20050;
     color: white;
   }
+
+  .background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -2;
+    background-image: url("/background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: bottom;
+  }
+
+  .starterContent {
+    display: flex;
+    flex-direction: row; 
+  }
+
 }

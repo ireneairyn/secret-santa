@@ -3,17 +3,19 @@ import styles from "@/styles/Home.module.css";
 
 export default function Home() {
   return (
-    <div className={styles.content}>
+    <div className="starterContent">
+      <div className={styles.content}>
       <div>
         <Link href="/about">
-          <button>How does it work?</button>
+        <button className="starterButton">HOW DOES IT WORK?</button>
         </Link>
       </div>
       <div>
         <Link href="/create">
-          <button>Get started!</button>
+        <button className="starterButton">CREATE NEW PARTY!</button>
         </Link>
       </div>
+    </div>
     </div>
   );
 }
