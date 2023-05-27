@@ -7,11 +7,15 @@ import React, { useState } from "react";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  const [showExtendedText, setShowExtendedText] = useState(false);
+  const [showExtendedText1, setShowExtendedText1] = useState(false);
+  const [showExtendedText2, setShowExtendedText2] = useState(false);
 
-  function handleButtonClick() {
-    setShowExtendedText(!showExtendedText);
+  function handleButtonClick1() {
+    setShowExtendedText1(!showExtendedText1);
+  }
 
+  function handleButtonClick2() {
+    setShowExtendedText2(!showExtendedText2);
   }
 
   return (
@@ -47,9 +51,9 @@ export default function Home() {
             In four words:<strong> Anonymous gift exchange tradition</strong>.
           </p>
           <div className={styles.displayButton}>
-            <button onClick={handleButtonClick}>{showExtendedText ? "I need less" : "I need more"}</button>
+            <button onClick={handleButtonClick1}>{showExtendedText1 ? "I need less" : "I need more"}</button>
           </div>
-          {showExtendedText && (
+          {showExtendedText1 && (
             <div className={styles.whatExtended}>
               <p>
                 Secret Santa, known as
@@ -82,9 +86,11 @@ export default function Home() {
             <strong> name | email | exceptions | budget | date | time</strong>
           </p>
           <div className={styles.displayButton}>
-            <button>I need more</button>
+          <button onClick={handleButtonClick2}>{showExtendedText2 ? "I need less" : "I need more"}</button>
+
           </div>
-          <div className={styles.howExtended}>
+          {showExtendedText2 && (
+            <div className={styles.whatExtended}>
             <p>
               Write the name and email of the participants, including yours as
               the organiser. Next to each participant choose the name or names
@@ -100,6 +106,7 @@ export default function Home() {
             <p>Once that's sorted, choose a budget for the presents.</p>
             <p>Finally, add a date and place for the event!</p>
           </div>
+          )}
         </div>
       </div>
       <footer>
