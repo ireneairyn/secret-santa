@@ -1,4 +1,3 @@
-
 .title {
   width: 430px;
   max-width: 90%;
@@ -7,21 +6,32 @@
   filter: invert(52%) sepia(65%) saturate(411%) hue-rotate(149deg);
 }
 
-.present {
-  width: 230px;
+.silhouette {
+  width: fit-content;
   max-width: 100%;
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.footer {
+  background-image: url("/backgroundPhone.png");
+  background-size: contain;
+  background-repeat: repeat-x;
+  background-position-y: bottom;
+  height: 100px;
+  flex-grow: 1;
 }
 
 /* Desktop stuff */
-@media (min-width: 768px) {
-    .present {
-      right: 20;
-      background-size: 300px;
-      background-position: right;
-      background-position-y: bottom;
-    }
+@media (min-width: 768px){
+  .footer {
+    background-image: url("/background.png");
+    height: 100px;
   }
-  
+}

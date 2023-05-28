@@ -5,23 +5,19 @@
 body {
   margin: 0;
   height: 100%;
-  background-color: #ffffff;
+  background-color: #ddfdff;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 20px;
 }
 
-.background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-  background-image: url("/backgroundPhone.png");
-  background-size: cover;
-  background-repeat: no-repeat; 
-  background-position: center;
-  background-position-y: bottom;
+body,
+#__next {
+  min-height: 100vh;
+}
+
+#__next {
+  display: flex;
+  flex-direction: column;
 }
 
 header {
@@ -44,8 +40,8 @@ button {
 }
 
 .starterContent {
-display: flex;
-justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .starterButton {
@@ -85,23 +81,8 @@ footer {
     color: white;
   }
 
-  .background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -2;
-    background-image: url("/background.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-position-y: bottom;
-  }
-
   .starterContent {
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;
   }
-
 }
