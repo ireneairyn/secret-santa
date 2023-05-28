@@ -90,7 +90,7 @@ export default function About() {
           I get it now, <strong>let's do this!</strong>
         </p>
         <div className={styles.displayButton}>
-          <Link href="/create">
+          <Link href="/form">
             <button>Create party!</button>
           </Link>
         </div>

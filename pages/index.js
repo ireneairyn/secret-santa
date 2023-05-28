@@ -11,7 +11,7 @@ export default function Home() {
         </Link>
       </div>
       <div>
-        <Link href="/create">
+        <Link href="/form">
         <button className="starterButton">CREATE NEW PARTY!</button>
         </Link>
       </div>

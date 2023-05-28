@@ -42,6 +42,7 @@ button {
 .starterContent {
   display: flex;
   justify-content: center;
+  margin-top: 55px;
 }
 
 .starterButton {
@@ -72,6 +73,56 @@ footer {
   margin: 10px 10px 0 10px;
 }
 
+.wrapper {
+  width: 100%;
+  padding-bottom: 50px;
+}
+
+.wrapperSent {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+}
+
+.formContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  align-items: center;
+}
+
+label {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  font-size: 24px;
+}
+
+input {
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  background-color: #ffffff;
+  margin-bottom: 1rem;
+  border-radius: 25px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.line {
+  border-bottom: 1px solid #01a8c2;
+  margin-bottom: 25px;
+}
+
 /* Desktop stuff */
 @media (min-width: 768px) {
   button:hover {
@@ -84,5 +135,10 @@ footer {
   .starterContent {
     display: flex;
     flex-direction: row;
+  }
+
+  .formContent {
+    margin-top: 50px;
+    margin-bottom: 50px;
   }
 }
