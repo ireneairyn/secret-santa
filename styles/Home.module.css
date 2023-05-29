@@ -3,6 +3,12 @@
   margin-right: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  align-content: center;
+  flex-wrap: wrap;
 }
 
 .displayButton {
@@ -33,6 +39,7 @@
   height: 35px;
   opacity: 50%;
 }
+
 
 /* Desktop stuff */
 @media (min-width: 768px) {

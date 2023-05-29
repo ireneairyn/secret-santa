@@ -71,6 +71,7 @@ function Form() {
           />
         </label>
       <div className="buttonContainer">
+         <button type="submit">Add participant</button>
         <Link
           href={{
             pathname: "/sent",
@@ -85,7 +86,6 @@ function Form() {
             },
           }}
         >
-         <button type="submit">Add participant</button>
           <button type="submit">Send emails!</button>
         </Link>
       </div>

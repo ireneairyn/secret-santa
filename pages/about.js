@@ -84,7 +84,7 @@ export default function About() {
           </div>
         )}
       </div>
-      <div>
+      <div className={styles.create}>
         <h2>Ready to play!</h2>
         <p>
           I get it now, <strong>let's do this!</strong>
