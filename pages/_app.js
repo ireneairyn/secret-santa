@@ -30,6 +30,7 @@ export default function App({ Component, pageProps }) {
         </a>
       </div>
       <Head>
+     
         <title>Secret Santa</title>
         <meta
           name="description"

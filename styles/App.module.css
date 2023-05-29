@@ -1,9 +1,7 @@
 .title {
   display: flex;
   justify-content: center;
-  width: 430px;
-  max-width: 90%;
-  margin-top: 35px;
+  width: 360px;
   opacity: 100%;
   filter: invert(52%) sepia(65%) saturate(411%) hue-rotate(149deg);
 }
@@ -32,6 +30,11 @@
 
 /* Desktop stuff */
 @media (min-width: 768px){
+  .title {
+    width: 430px;
+    
+  }
+
   .footer {
     background-image: url("/background.png");
     height: 100px;
