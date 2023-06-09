@@ -147,7 +147,7 @@ input {
   margin-top: 10px;
 }
 
-.dateTime, .participant {
+.dateTime, .nameAndEmail {
   display: flex;
   gap: 4px;
 }

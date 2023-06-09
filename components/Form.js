@@ -15,10 +15,10 @@ function Form() {
   const [location, setLocation] = useState("");
   const [budget, setBudget] = useState("");
   const [message, setMessage] = useState("");
-  const [users, setUsers] = useState([{ name: "", email: "" }]);
+  const [users, setUsers] = useState([{ name: "", email: "", exceptions: [] }]);
 
   const addParticipant = React.useCallback(() => {
-    setUsers([...users, { name: "", email: "" }]);
+    setUsers([...users, { name: "", email: "", exceptions: [] }]);
   }, [users]);
 
   const deleteParticipant = (index) => {
@@ -93,6 +93,7 @@ function Form() {
       {users.map((user, index) => {
         return (
           <div key={index} className="participant">
+            <div className="nameAndEmail">
             <div>
               <label htmlFor={`name-${index}`}>👤 Name</label>
               <input
@@ -121,12 +122,29 @@ function Form() {
                 }}
               />
             </div>
-            <button
-              className="deleteButton"
-              onClick={() => deleteParticipant(index)}
-            >
-              🗑️
-            </button>
+              <button
+                className="deleteButton"
+                onClick={() => deleteParticipant(index)}
+              >
+                🗑️
+              </button>
+            </div>
+            <div className="exception">
+              <div>
+                <label htmlFor={`exceptions-${index}`}>❌ Exceptions</label>
+                <input
+                  id={`exceptions-${index}`}
+                  className="exceptions"
+                  type="text"
+                  value={user.exceptions}
+                  onChange={(e) => {
+                    const newUsers = [...users];
+                    newUsers[index].exceptions = e.target.value;
+                    setUsers(newUsers);
+                  }}
+                />
+              </div>
+            </div>
           </div>
         );
       })}
