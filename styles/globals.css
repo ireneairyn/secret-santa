@@ -133,6 +133,7 @@ input {
 .line {
   border-bottom: 1px solid #01a8c2;
   margin-bottom: 25px;
+  margin-top: 10px;
 }
 
 .buttonContainer {
@@ -140,12 +141,21 @@ input {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 10px;
 }
 
 .dateTime, .participant {
   display: flex;
+  gap: 4px;
 }
 
+.deleteButton {
+  background-color: transparent;
+  border: transparent;
+  outline: transparent;
+  margin-bottom: 0px;
+  margin-top: 14px;
+}
 
 /* Desktop stuff */
 @media (min-width: 768px) {
@@ -154,6 +164,15 @@ input {
     border: white solid 2px;
     outline: 2px solid #b20050;
     color: white;
+  }
+
+  .deleteButton:hover {
+    background-color: transparent;
+    border: transparent;
+    outline: transparent;
+    color: white; 
+    font-size: 22px;
+    padding: 2px;
   }
 
   .starterContent {
