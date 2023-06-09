@@ -1,5 +1,12 @@
 import Link from "next/link";
 import React, { useState } from "react";
+import { createClient } from "@supabase/supabase-js";
+
+// Initialize Supabase client
+const supabase = createClient(
+  "https://oncswubhrnouqlopdxwo.supabase.co",
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9uY3N3dWJocm5vdXFsb3BkeHdvIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4NjMxNTAyMSwiZXhwIjoyMDAxODkxMDIxfQ.Zi0W7_YMrIlv2OFBYWQmIutTST9J9tsi2bJ1NqSGgIg"
+);
 
 function Form() {
   const [event, setEvent] = useState("");
@@ -20,9 +27,23 @@ function Form() {
     setUsers(updatedUsers);
   };
 
-  const send = React.useCallback(() => {
-    console.log("Send", { users, message });
-  }, [users, message]);
+  const send = async () => {
+    // Save event details to Supabase
+    await supabase.from("events").insert([
+      {
+        event,
+        date,
+        time,
+        location,
+        budget,
+      },
+    ]);
+
+    // Save participant details to Supabase
+    await supabase.from("participants").insert(users);
+
+    console.log("Data saved to Supabase");
+  };
 
   return (
     <div className="form">
