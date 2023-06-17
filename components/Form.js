@@ -1,12 +1,44 @@
 import Link from "next/link";
 import React, { useState } from "react";
-import { createClient } from "@supabase/supabase-js";
+import { initializeApp } from "firebase/app";
+import "firebase/database";
+import firebase from "firebase/compat/app";
 
-// Initialize Supabase client
-const supabase = createClient(
-  "https://oncswubhrnouqlopdxwo.supabase.co",
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9uY3N3dWJocm5vdXFsb3BkeHdvIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4NjMxNTAyMSwiZXhwIjoyMDAxODkxMDIxfQ.Zi0W7_YMrIlv2OFBYWQmIutTST9J9tsi2bJ1NqSGgIg"
-);
+
+// import { createClient } from "@supabase/supabase-js";
+
+// // Initialize Supabase client
+// const supabase = createClient(
+//   "https://oncswubhrnouqlopdxwo.supabase.co",
+//   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9uY3N3dWJocm5vdXFsb3BkeHdvIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4NjMxNTAyMSwiZXhwIjoyMDAxODkxMDIxfQ.Zi0W7_YMrIlv2OFBYWQmIutTST9J9tsi2bJ1NqSGgIg"
+// );
+
+// Import the functions you need from the SDKs you need
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyC8ZUyw-FTahqqmRhRzxYzA_QA6VAkevkM",
+  authDomain: "secret-santa-d618e.firebaseapp.com",
+  databaseURL: "https://secret-santa-d618e-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "secret-santa-d618e",
+  storageBucket: "secret-santa-d618e.appspot.com",
+  messagingSenderId: "691218473853",
+  appId: "1:691218473853:web:3f25855a48748c40e9e214",
+  measurementId: "G-M5B86K5Y5V"
+};
+
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
 
 // Function to send an email using your preferred email sending method
 const sendEmail = async (to, subject, content) => {
@@ -70,21 +102,21 @@ function Form() {
  
     
   const send = async () => {
-    // Save event details to Supabase
-    await supabase.from("events").insert([
-      {
-        event,
-        date,
-        time,
-        location,
-        budget,
-      },
-    ]);
+    // Save event details to Firebase
+    const eventRef = firebase.database().ref("events");
+    await eventRef.push({
+      event,
+      date,
+      time,
+      location,
+      budget,
+    });
+  
+    // Save participant details to Firebase
+    const participantsRef = firebase.database().ref("participants");
+    await participantsRef.push(users);
 
-    // Save participant details to Supabase
-    await supabase.from("participants").insert(users);
-
-    console.log("Data saved to Supabase");
+    console.log("Data saved to Firebase");
 
     assignParticipants();
 
@@ -161,7 +193,7 @@ function Form() {
       </div>
       <label htmlFor="location">📍 Location</label>
       <input
-        id="budget"
+        id="location"
         type="text"
         value={location}
         onChange={(e) => setLocation(e.target.value)}

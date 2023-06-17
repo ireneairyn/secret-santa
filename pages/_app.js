@@ -3,7 +3,27 @@ import Head from "next/head";
 import * as styles from "@/styles/App.module.css";
 import Link from "next/link";
 import Image from "next/image";
-import "@/styles/globals.css";
+import firebase from "firebase/compat/app";
+import { initializeApp } from "firebase/compat/app";
+import "firebase/compat/database";
+
+
+
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyC8ZUyw-FTahqqmRhRzxYzA_QA6VAkevkM",
+  authDomain: "secret-santa-d618e.firebaseapp.com",
+  databaseURL: "https://secret-santa-d618e-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "secret-santa-d618e",
+  storageBucket: "secret-santa-d618e.appspot.com",
+  messagingSenderId: "691218473853",
+  appId: "1:691218473853:web:3f25855a48748c40e9e214",
+  measurementId: "G-M5B86K5Y5V"
+};
+
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
 
 export default function App({ Component, pageProps }) {
   return (
