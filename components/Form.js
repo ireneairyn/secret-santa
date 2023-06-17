@@ -36,53 +36,39 @@ function Form() {
   };
 
   const assignParticipants = () => {
-    const participants = [...users];
-    const availableParticipants = [...users];
-
-    participants.forEach((participant) => {
-      const exceptions = participant.exceptions
-        .toLowerCase()
-        .split(",")
-        .map((exception) => exception.trim());
-
-      // Filter out the current participant and their exceptions
-      const filteredParticipants = availableParticipants.filter(
-        (p) =>
-          p.name.toLowerCase() !== participant.name.toLowerCase() &&
-          !exceptions.includes(p.name.toLowerCase())
+    const shuffledUsers = [...users]; // Make a copy of users array
+    let assignedParticipants = [];
+  
+    // Sort participants by the number of exceptions in ascending order
+    shuffledUsers.sort((a, b) => a.exceptions.length - b.exceptions.length);
+  
+    for (let i = 0; i < shuffledUsers.length; i++) {
+      const currentUser = shuffledUsers[i];
+      let availableParticipants = shuffledUsers.filter(
+        (participant) =>
+          participant !== currentUser && // Exclude current user
+          !currentUser.exceptions.includes(participant.name) && // Exclude participants in exceptions list
+          !assignedParticipants.includes(participant) // Exclude already assigned participants
       );
-
-      if (filteredParticipants.length > 0) {
-        const excludedParticipants = filteredParticipants.filter(
-          (p) => exceptions.includes(p.name.toLowerCase())
-        );
-
-        if (excludedParticipants.length > 0) {
-          const randomIndex = Math.floor(Math.random() * excludedParticipants.length);
-          const assignedParticipant = excludedParticipants[randomIndex];
-
-          // Assign the participant to the excluded participant
-          participant.assignedParticipant = assignedParticipant.name;
-
-          // Remove assigned participant from the available participants list
-          availableParticipants.splice(availableParticipants.indexOf(assignedParticipant), 1);
-        } else {
-          const randomIndex = Math.floor(Math.random() * filteredParticipants.length);
-          const assignedParticipant = filteredParticipants[randomIndex];
-
-          // Assign the participant to the assigned participant
-          participant.assignedParticipant = assignedParticipant.name;
-
-          // Remove assigned participant from the available participants list
-          availableParticipants.splice(availableParticipants.indexOf(assignedParticipant), 1);
-        }
-      } else {
-        // If no available participants, assign the participant to themselves
-        participant.assignedParticipant = participant.name;
+  
+      if (availableParticipants.length === 0) {
+        // If no available participants, restart the assignment process
+        assignedParticipants = [];
+        i = -1;
+        continue;
       }
-    });
+  
+      const assignedParticipant =
+        availableParticipants[Math.floor(Math.random() * availableParticipants.length)];
+  
+      assignedParticipants.push(assignedParticipant);
+      currentUser.assignedParticipant = assignedParticipant.name;
+    }
+  
+    setUsers(shuffledUsers);
   };
-
+ 
+    
   const send = async () => {
     // Save event details to Supabase
     await supabase.from("events").insert([
@@ -243,6 +229,7 @@ function Form() {
                 />
               </div>
             </div>
+            <div className="dottedLine"></div>
           </div>
         );
       })}

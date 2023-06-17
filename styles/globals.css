@@ -138,6 +138,11 @@ input {
   margin-bottom: 25px;
   margin-top: 10px;
 }
+.dottedLine {
+  border-bottom: 1px dotted #01a8c2;
+  margin-bottom: 25px;
+  margin-top: 10px;
+}
 
 .buttonContainer {
   display: flex;
